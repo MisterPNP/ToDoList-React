@@ -5,7 +5,7 @@ import Checkbox from "./Checkbox";
 
 function App() {
     return(
-        <div>
+        <div className="todolist">
             <Checkbox/>
             <Checkbox/>
             <Checkbox/>
