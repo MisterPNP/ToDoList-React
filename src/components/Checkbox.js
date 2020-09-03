@@ -3,8 +3,7 @@
 
 import React from "react"
 
-
-function Checkbox() {
+function Checkbox(props) {
 
     const styles = {
         fontSize:30
@@ -21,11 +20,10 @@ function Checkbox() {
         styles.color = "#00008B"
     }
 
-
     return(
         <div className="todoitem">
-            <input type="checkbox" />
-            <p style={styles}>Do this here</p>
+            <input type="checkbox" checked={props.item.completed}/>
+            <p style={styles}> {props.item.text} </p>
         </div>
     )
 }

@@ -1,14 +1,21 @@
 
 //main app component
 import React from "react"
+
 import Checkbox from "./Checkbox";
+import todosData from "../data/todoData";
 
 function App() {
+
+    const checkboxes = todosData.map(checkbox => {
+        return(<Checkbox
+            item={checkbox}
+        />)
+    })
+
     return(
         <div className="todolist">
-            <Checkbox/>
-            <Checkbox/>
-            <Checkbox/>
+            {checkboxes}
         </div>
     )
 }
