@@ -5,19 +5,32 @@ import React from "react"
 import Checkbox from "./Checkbox";
 import todosData from "../data/todoData";
 
-function App() {
+class App extends React.Component {
 
-    const checkboxes = todosData.map(checkbox => {
-        return(<Checkbox
-            item={checkbox}
-        />)
-    })
+    constructor() {
+        super()
+        this.state = {
+            checkboxes: todosData
+        }
+    }
 
-    return(
-        <div className="todolist">
-            {checkboxes}
-        </div>
-    )
+    setCheckBoxes() {
+        return(
+            this.state.checkboxes.map(checkbox => {
+            return(<Checkbox
+                item={checkbox}
+            />)
+        }))
+    }
+    render() {
+        const checkboxes = this.setCheckBoxes()
+
+        return(
+            <div className="todolist">
+                {checkboxes}
+            </div>
+        )
+    }
 }
 
 export default App;
