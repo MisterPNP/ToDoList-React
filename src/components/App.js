@@ -12,16 +12,34 @@ class App extends React.Component {
         this.state = {
             checkboxes: todosData
         }
+        this.handleChange = this.handleChange.bind(this)
     }
 
     setCheckBoxes() {
         return(
             this.state.checkboxes.map(checkbox => {
             return(<Checkbox
+                key={checkbox.id}
                 item={checkbox}
+                handleChange={this.handleChange}
             />)
         }))
     }
+
+    handleChange(id) {
+        this.setState(prevState => {
+            const updated = prevState.checkboxes.map(checkbox => {
+                if(checkbox.id === id) {
+                    checkbox.completed = !checkbox.completed
+                }
+                return checkbox
+            })
+            return{
+                checkboxes: updated
+            }
+        })
+    }
+
     render() {
         const checkboxes = this.setCheckBoxes()
 

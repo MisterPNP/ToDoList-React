@@ -22,7 +22,11 @@ function Checkbox(props) {
 
     return(
         <div className="todoitem">
-            <input type="checkbox" checked={props.item.completed}/>
+            <input
+                type="checkbox"
+                checked={props.item.completed}
+                onChange={() => props.handleChange(props.item.id)}
+            />
             <p style={styles}> {props.item.text} </p>
         </div>
     )
