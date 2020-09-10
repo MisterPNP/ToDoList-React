@@ -30,7 +30,10 @@ class App extends React.Component {
         this.setState(prevState => {
             const updated = prevState.checkboxes.map(checkbox => {
                 if(checkbox.id === id) {
-                    checkbox.completed = !checkbox.completed
+                    return {
+                        ...checkbox,
+                        completed: !checkbox.completed
+                    }
                 }
                 return checkbox
             })
