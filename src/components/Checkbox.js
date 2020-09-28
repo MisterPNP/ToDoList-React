@@ -5,19 +5,17 @@ import React from "react"
 
 function Checkbox(props) {
 
-    const styles = {
-        fontSize:30
+    //style if task is completed
+    const completedStyle = {
+        fontSize: 30,
+        fontStyle: "italic",
+        color: "#cdcdcd",
+        textDecoration: "line-through"
     }
-
-    const date = new Date()
-    const time = date.getHours()
-
-    if(time < 12) {
-        styles.color = "#00FFFF"
-    } else if(time >= 12 && time < 18) {
-        styles.color = "#FF8C00"
-    } else {
-        styles.color = "#00008B"
+    //style of not completed
+    const notCompletedStyle = {
+        fontSize: 30,
+        color: "#bababa"
     }
 
     return(
@@ -27,7 +25,9 @@ function Checkbox(props) {
                 checked={props.item.completed}
                 onChange={() => props.handleChange(props.item.id)}
             />
-            <p style={styles}> {props.item.text} </p>
+            <p style={props.item.completed ? completedStyle : notCompletedStyle}>
+                {props.item.text}
+            </p>
         </div>
     )
 }
